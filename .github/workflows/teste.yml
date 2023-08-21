@@ -19,4 +19,4 @@ jobs:
         id: get-version
 
       - name: Teste
-        run: echo $version"
+        run: echo $version
