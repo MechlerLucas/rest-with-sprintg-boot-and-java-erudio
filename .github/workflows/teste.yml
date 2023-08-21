@@ -16,7 +16,10 @@ jobs:
         run: echo version=$(grep -Po 'version=\K.*' gradle.properties) >> $GITHUB_ENV
 
       - name: Teste
-        run: echo batata=frita >> $GITHUB_ENV
+        run: echo batata="frita" >> $GITHUB_ENV
+
+      - name: Print
+        run: printf '%s\n' "$batata"
 
       - name: Teste
         run: printf '%s\n' "$GITHUB_ENV"
