@@ -19,7 +19,4 @@ jobs:
         id: get-version
 
       - name: Teste
-        run: echo ${{ needs.build.outputs.version }}"
-
-      - name: Teste
         run: echo $version"
