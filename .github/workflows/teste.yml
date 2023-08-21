@@ -8,15 +8,12 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    outputs:
-      version: ${{ steps.get-version.outputs.version }}
     steps:
       - name: Checkout Project
         uses: actions/checkout@v3
 
       - name: set output
-        run: echo version=$(grep -Po 'version=\K.*' gradle.properties) >> $GITHUB_OUTPUT
-        id: get-version
+        run: echo version=$(grep -Po 'version=\K.*' gradle.properties) >> $GITHUB_ENV
 
       - name: Teste
-        run: echo ${{ needs.build.outputs.version }}
+        run: printf '%s\n' "$version"
